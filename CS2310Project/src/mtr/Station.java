@@ -3,6 +3,7 @@ package mtr;
 import java.util.ArrayList;
 
 public class Station {
+	
 	public String name;
 	public ArrayList<String> lines;
 	public Station(String name, String lineName){

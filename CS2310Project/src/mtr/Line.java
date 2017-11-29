@@ -1,10 +1,12 @@
 package mtr;
 
+import java.util.ArrayList;
+
 public class Line {
 	
-	public Station[] stations;
+	public ArrayList<Station> stations;
 	
-	public Line(Station[] stations){
+	public Line(ArrayList<Station> stations){
 		this.stations = stations;
 	}
 }
