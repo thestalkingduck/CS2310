@@ -2,5 +2,9 @@ package mtr;
 
 public class Main {
 
-	Menu menu = new Menu();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Menu menu = new Menu();
+	}
+
 }
