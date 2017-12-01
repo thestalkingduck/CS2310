@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Import {
 
@@ -19,7 +20,7 @@ public class Import {
 		String[] tempArray;
 		ArrayList<Station> mtrLine;
 		HashMap<String, Line> mtrLines = new HashMap<String, Line>();
-		HashMap<String, Station> mtrStations = new HashMap<String, Station>();
+		LinkedHashMap<String, Station> mtrStations = new LinkedHashMap<String, Station>();
 		
 		try {
 			
