@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Import {
 
@@ -15,10 +17,11 @@ public class Import {
 	public MTRNetwork getFromFile(){
 		
 		BufferedReader input;
-		int key = 0;
+		Station current;
 		String temp;
 		String[] tempArray;
-		ArrayList<Station> mtrLine;
+		ArrayList<Station> mtrLine, linkingStations;
+		linkingStations = new ArrayList<Station>();
 		HashMap<String, Line> mtrLines = new HashMap<String, Line>();
 		LinkedHashMap<String, Station> mtrStations = new LinkedHashMap<String, Station>();
 		
@@ -44,13 +47,24 @@ public class Import {
 				}
 				mtrLines.put(tempArray[0], new Line(mtrLine));
 			} while (true);
-			
+			Iterator<Map.Entry<String, Station>> it;
+			//option to user
+			//list all
+			it = mtrStations.entrySet().iterator();
+			while(it.hasNext()){
+				
+				current = it.next().getValue();
+				if( current.lines.size() > 1){
+					linkingStations.add(current);
+				}
+				
+			}
 
 			input.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new MTRNetwork(mtrLines,mtrStations);
+		return new MTRNetwork(mtrLines,mtrStations,linkingStations);
 	}
 }
